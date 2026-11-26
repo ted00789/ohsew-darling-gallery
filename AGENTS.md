@@ -28,3 +28,8 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+- Keep the shared header and footer in the root route and each content page in its own leaf route so navigation and metadata stay consistent.
+- Keep portfolio data, request-prefill generation, and form validation in the shared sewing module so gallery and contact contracts remain aligned.
+- Submit contact requests directly to the user-selected Formspree service; do not introduce a storage backend for this form because the owner chose external delivery.
+- Use CDN asset pointers for sample product imagery and clearly distinguish it from the owner's actual portfolio.
