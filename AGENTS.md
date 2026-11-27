@@ -33,3 +33,5 @@ use the editor.
 - Keep portfolio data, request-prefill generation, and form validation in the shared sewing module so gallery and contact contracts remain aligned.
 - Submit contact requests directly to the user-selected Formspree service; do not introduce a storage backend for this form because the owner chose external delivery.
 - Use CDN asset pointers for sample product imagery and clearly distinguish it from the owner's actual portfolio.
+- Build in TanStack Start SPA mode with Nitro disabled; deploy only dist/client, since the generated server bundle is build-time shell tooling, not a hosting runtime.
+- Generate static shell entry files for every existing route and package pointer assets during the shell's build callback, so clean deep links and images work without hosting rewrites or an asset proxy.

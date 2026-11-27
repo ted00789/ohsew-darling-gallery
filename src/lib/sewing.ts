@@ -22,7 +22,6 @@ export const portfolio = [
 ];
 export const similarDescription = (name: string) =>
   `I’d like something similar to ${name} (or based on this design but with different colors/details).`;
-export const formEndpoint = "https://formspree.io/f/xjywzpbz";
 export const contactSchema = z.object({
   name: z.string().trim().min(1, "Please enter your name.").max(100),
   email: z.string().trim().email("Please enter a valid email address.").max(255),

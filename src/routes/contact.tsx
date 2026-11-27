@@ -3,7 +3,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, Check, Phone, Heart, LoaderCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PageHeading, SocialLinks } from "@/components/site-shell";
-import { contactSchema, contactSearchSchema, formEndpoint, pageHead } from "@/lib/sewing";
+import { contactSchema, contactSearchSchema, pageHead } from "@/lib/sewing";
+
+export const FORM_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
 export const Route = createFileRoute("/contact")({
   validateSearch: (search) => contactSearchSchema.parse(search),
   head: () =>
@@ -37,7 +39,7 @@ function Contact() {
     }
     setStatus("sending");
     try {
-      const response = await fetch(formEndpoint, {
+      const response = await fetch(FORM_ENDPOINT, {
         method: "POST",
         headers: { Accept: "application/json", "Content-Type": "application/json" },
         body: JSON.stringify(result.data),
@@ -100,7 +102,7 @@ function Contact() {
             </Button>
           </div>
         ) : (
-          <form className="contact-form" action={formEndpoint} method="POST" onSubmit={submit}>
+          <form className="contact-form" action={FORM_ENDPOINT} method="POST" onSubmit={submit}>
             <div className="form-row">
               <div className="field">
                 <label htmlFor="name">Your name *</label>

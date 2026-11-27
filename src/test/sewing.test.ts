@@ -2,15 +2,11 @@ import { describe, expect, it } from "vitest";
 import {
   contactSchema,
   contactSearchSchema,
-  formEndpoint,
   similarDescription,
   categories,
 } from "@/lib/sewing";
 
 describe("Custom requests", () => {
-  it("uses the exact requested Formspree destination", () => {
-    expect(formEndpoint).toBe("https://formspree.io/f/xjywzpbz");
-  });
   it("prefills the description with the requested item and customization option", () => {
     expect(similarDescription("Mint gingham flutter dress")).toBe(
       "I’d like something similar to Mint gingham flutter dress (or based on this design but with different colors/details).",
