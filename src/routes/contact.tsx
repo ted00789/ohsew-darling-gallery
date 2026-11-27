@@ -1,6 +1,6 @@
 import { useEffect, useState, type FormEvent } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, Check, Mail, Phone, Heart, LoaderCircle } from "lucide-react";
+import { ArrowRight, Check, Phone, Heart, LoaderCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PageHeading, SocialLinks } from "@/components/site-shell";
 import { contactSchema, contactSearchSchema, formEndpoint, pageHead } from "@/lib/sewing";
@@ -44,12 +44,12 @@ function Contact() {
       });
       if (!response.ok)
         throw new Error(
-          "Your request could not be sent. Please try again, or contact Sarah by phone or email.",
+          "Your request could not be sent. Please try again, or contact Sarah by phone.",
         );
       setStatus("success");
     } catch {
       setError(
-        "Your request could not be sent. Please try again, or contact Sarah by phone or email.",
+        "Your request could not be sent. Please try again, or contact Sarah by phone.",
       );
       setStatus("idle");
     }
@@ -77,10 +77,6 @@ function Contact() {
           <a className="contact-detail" href="tel:+12054278923">
             <Phone size={19} />
             (205) 427-8923
-          </a>
-          <a className="contact-detail" href="mailto:sewarren1999@gmail.com">
-            <Mail size={19} />
-            sewarren1999@gmail.com
           </a>
           <div className="mt-8">
             <p className="mb-3! text-xs!">A little more inspiration</p>
