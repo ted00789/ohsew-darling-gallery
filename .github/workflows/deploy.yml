@@ -22,13 +22,24 @@ jobs:
       - run: npm run build
       - name: Prepare static files
         run: |
-          cd .output/public
-          if [ ! -f index.html ] && [ -f _shell.html ]; then cp _shell.html index.html; fi
+          for d in dist dist/client .output/public build; do
+            if [ -f "$d/index.html" ] || [ -f "$d/_shell.html" ]; then OUT="$d"; break; fi
+          done
+          if [ -z "$OUT" ]; then
+            echo "No output folder found. Listing:"
+            find . -name "index.html" -not -path "./node_modules/*"
+            find . -name "_shell.html" -not -path "./node_modules/*"
+            ls -la
+            exit 1
+          fi
+          echo "Using $OUT"
+          cp -r "$OUT" site
+          cd site
+          if [ ! -f index.html ]; then cp _shell.html index.html; fi
           cp index.html 404.html
-          ls
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: .output/public
+          path: site
   deploy:
     needs: build
     runs-on: ubuntu-latest
