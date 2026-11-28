@@ -3,7 +3,9 @@
 - [x] Build Home, Gallery, Pricing, How It Works, and Contact pages.
 - [x] Connect Formspree and gallery request prefilling.
 - [x] Verify navigation, filters, request flow, and mobile layout.
-- [ ] Switch to a static SPA build without Nitro or a server runtime.
-- [ ] Preserve clean URLs on plain static hosting and update GitHub Pages output.
-- [ ] Use the requested placeholder contact endpoint and verify submission states.
-- [ ] Verify generated static files and all five routes.
+- [x] Configure a static SPA build without a hosting runtime for GitHub Pages.
+- [x] Preserve clean URLs with static entry files and update GitHub Pages output.
+- [x] Use the requested placeholder contact endpoint and verify submission states.
+- [x] Repair preview loading and Lovable publishing compatibility; verify all five pages and navigation.
+- [ ] Verify generated production files on plain static hosting (requires the GitHub build artifact; sandbox checks expose no production folder).
+- [ ] Verify the repaired published website (requires publishing the saved repair).

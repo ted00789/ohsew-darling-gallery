@@ -31,7 +31,10 @@ Use Node.js 22.12 or newer, then run `npm install` and `npm run build`.
 The deployable static folder is **`dist/client/`**, containing `index.html`,
 JavaScript/CSS, the existing images, `CNAME`, and `.nojekyll`.
 Upload only this folder; `dist/server/` is temporary build tooling for generating
-the SPA shell and is not used by the hosted site. Nitro and Cloudflare are disabled.
+the SPA shell and is not used by the GitHub Pages site. Nitro and Cloudflare are
+disabled for local and GitHub builds. Lovable's own publishing environment keeps
+its required deployment adapter enabled so the existing `.lovable.app` site can
+still load; this does not change the static GitHub Pages output.
 
 The asset base is `/`, for a custom domain hosted at its root. Each existing route
 has a copy of the same SPA shell at `<route>/index.html`, so direct visits and
